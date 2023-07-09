@@ -80,26 +80,8 @@ LEFT JOIN Detalhes_Partida dp ON dp.Time_idTimeCasa = t.idTime OR dp.Time_idTime
 GROUP BY t.idTime, t.nome
 ORDER BY Pontos DESC, GolsMarcados DESC;
 
-create view JogadorTime as
-SELECT p.nome AS nome_jogador, j.Pessoa_idPessoa AS id_jogador, t.nome AS nome_time
-FROM Jogador_joga_time jjt
-JOIN Jogador j ON jjt.Jogador_Pessoa_idPessoa = j.Pessoa_idPessoa
-JOIN Time t ON jjt.Time_idTime = t.idTime
-JOIN Pessoa p ON j.Pessoa_idPessoa = p.idPessoa;
 
 
-CREATE VIEW Artilheiro AS
-SELECT j.Pessoa_idPessoa, p.nome AS nome_jogador, COUNT(*) AS total_gols, c.nome AS nome_campeonato
-FROM Gol g
-JOIN Jogador j ON g.Jogador_Pessoa_idPessoa = j.Pessoa_idPessoa
-JOIN Pessoa p ON j.Pessoa_idPessoa = p.idPessoa
-JOIN Jogador_joga_time jjt ON j.Pessoa_idPessoa = jjt.Jogador_Pessoa_idPessoa
-JOIN Time t ON jjt.Time_idTime = t.idTime
-JOIN Time_participa_Campeonato tpc ON t.idTime = tpc.Time_idTime
-JOIN Campeonato c ON tpc.Campeonato_idCampeonato = c.idCampeonato
-WHERE c.idCampeonato = 1 -- Substitua 1 pelo ID do campeonato desejado
-GROUP BY j.Pessoa_idPessoa, p.nome, c.nome
-ORDER BY total_gols DESC
+SELECT * FROM Classificacao;
 
-
-
+select * from Detalhes_Partida

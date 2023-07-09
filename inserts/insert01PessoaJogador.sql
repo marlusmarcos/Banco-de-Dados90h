@@ -45,3 +45,12 @@ INSERT INTO Pessoa (idPessoa, nome, cpf, data_nascimento)
 VALUES (19, 'David Alaba', '90123456789', '1992-06-24');
 INSERT INTO Pessoa (idPessoa, nome, cpf, data_nascimento)
 VALUES (20, 'Paul Pogba', '01234567890', '1993-03-15');
+
+-- Inserir Treinadores
+INSERT INTO Pessoa (idPessoa, nome, data_nascimento, cpf)
+VALUES (22, 'Abel Ferreira', '1990-01-01', '11111111111'),
+       (23, 'Fernando Diniz', '1985-03-15', '22222222222'),
+       (24, 'J. Klop', '1982-07-20', '33333333333'),
+       (25, 'Pep Guardiola', '1978-12-10', '44444444444');
+
+
